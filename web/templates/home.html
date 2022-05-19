@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html class="w-100 h-100" lang="en">
+<head>
+    <title> uploading service </title>
+    {% include 'meta.html' %}
+    <script defer src="{{ url_for('static', filename='main.js') }}?u={{ cache_gen('web/static') }}"></script>
+</head>
+<body class="w-100 h-100 d-flex flex-column">
+    <nav class="navbar navbar-dark bg-dark mb-2">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="#">dumploader</a>
+        <form class="ms-auto d-flex flex-row">
+            <i class="bi bi-sun me-3 text-white"></i>
+              <div class="form-check form-switch">
+                <label class="form-check-label" for="toggle-btn"></label>
+                <input class="form-check-input" name="theme" type="checkbox" id="toggle-btn">
+                <label class="form-check-label" for="toggle-btn"></label>
+              </div>
+            <i class="bi bi-moon ms-1 text-white"></i>
+        </form>
+      </div>
+    </nav>
+    <main class="d-flex flex-grow-1 flex-column align-items-center justify-content-center">
+        <span class="flex-shrink-1 mb-3 fs-4 fw-light">dump a file</span>
+        <button class="btn btn-primary btn-xl d-block mx-auto d-flex flex-row" id="uploadButton">
+            <span class="align-self-center me-2">Upload</span> <i class="bi bi-file-earmark-arrow-up-fill" style="font-size: 3rem;"></i>
+        </button>
+        <div class="border border-secondary border-2 rounded p-2 mt-2">
+            <span>moss.png</span>
+            <i class="bi bi-filetype-png my-1 mx-1"></i>
+            <a href="#" class="text-decoration-none p-0 m-0">&times;</a>
+        </div>
+    </main>
+    <input type="file" name="upload" style="display: none;">
+</body>
+</html>

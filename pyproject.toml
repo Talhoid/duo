@@ -1,0 +1,20 @@
+[tool.poetry]
+name = "owah"
+version = "0.1.0"
+description = ""
+authors = ["Your Name <you@example.com>"]
+
+[tool.poetry.dependencies]
+python = "^3.8"
+Flask = { version = "^2.1.2", extras = ["async"] }
+Flask-Cors = "^3.0.10"
+flask-request-id = "^0.1"
+cryptography = "^37.0.1"
+flask-request-id-middleware = "^1.1"
+aioflask = "^0.4.0"
+
+[tool.poetry.dev-dependencies]
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
