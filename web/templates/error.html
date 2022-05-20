@@ -5,6 +5,19 @@
     <title>sorry!</title>
 </head>
 <body>
-    
+    {% include 'nav.html' %}
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <h1>sorry!</h1>
+                <p> there's been an error </p>
+                <p>
+                    <a href="{{ url_for('home') }}">
+                        <button class="btn btn-primary">go back</button>
+                    </a>
+                </p>
+            </div>
+        </div>
+    </div>
 </body>
 </html>

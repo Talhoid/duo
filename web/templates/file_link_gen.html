@@ -25,20 +25,7 @@
     </script>
 </head>
 <body class="w-100 h-100 d-flex flex-column">
-    <nav class="navbar navbar-dark bg-dark mb-2">
-      <div class="container-fluid">
-        <a class="navbar-brand" href="#">dumploader</a>
-        <form class="ms-auto d-flex flex-row">
-            <i class="bi bi-sun me-3 text-white"></i>
-              <div class="form-check form-switch">
-                <label class="form-check-label" for="toggle-btn"></label>
-                <input class="form-check-input" name="theme" type="checkbox" id="toggle-btn">
-                <label class="form-check-label" for="toggle-btn"></label>
-              </div>
-            <i class="bi bi-moon ms-1 text-white"></i>
-        </form>
-      </div>
-    </nav>
+    {% include 'nav.html' %}
 	<main class="container d-flex flex-grow-1 flex-column align-items-center justify-content-center">
         <div class="container-sm w-25 mt-2 border-info border-2 rounded p-2">
             <p class="d-inline-block align-middle">{{ filename }}</p>
