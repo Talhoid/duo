@@ -80,6 +80,7 @@ def handle_download_error(err):
     if len(err.args) > 0:
         response["message"] = err.args[0]
         response["type"] = err.args[1]
+#   return jsonify(response), err.code
     return render_template("error.html"), err.code
 @app.errorhandler(FileError)
 def handle_file_error(err):
@@ -90,8 +91,8 @@ def handle_file_error(err):
     if len(err.args) > 0:
         response["message"] = err.args[0]
         response["type"] = err.args[1]
+#   return jsonify(response), err.code
     return render_template("error.html"), err.code
-(response), err.code
 @app.route('/')
 def home():
     return render_template('home.html')
