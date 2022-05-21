@@ -1,23 +1,20 @@
-<!DOCTYPE html>
-<html class="w-100 h-100" lang="en">
-<head>
-    <title> uploading service </title>
-    {% include 'meta.html' %}
-    <script defer src="{{ url_for('static', filename='main.js') }}?u={{ cache_gen('web/static') }}"></script>
-</head>
-<body class="w-100 h-100 d-flex flex-column">
-    {% include 'nav.html' %}
-    <main class="d-flex flex-grow-1 flex-column align-items-center justify-content-center">
-        <span class="flex-shrink-1 mb-3 fs-4 fw-light">dump a file</span>
-        <button class="btn btn-primary btn-xl d-block mx-auto d-flex flex-row" id="uploadButton">
-            <span class="align-self-center me-2">Upload</span> <i class="bi bi-file-earmark-arrow-up-fill" style="font-size: 3rem;"></i>
-        </button>
-        <div class="border border-secondary border-2 rounded p-2 mt-2">
-            <span>moss.png</span>
-            <i class="bi bi-filetype-png my-1 mx-1"></i>
-            <a href="#" class="text-decoration-none p-0 m-0">&times;</a>
-        </div>
-    </main>
-    <input type="file" name="upload" style="display: none;">
-</body>
-</html>
+{% extends 'layout.html' %}
+{% block head %}
+  {{ super() }}
+  <link rel="stylesheet" href="{{ url_for('static', filename='home.css') }}">
+  <link rel="stylesheet" href="{{ url_for('static', filename='main.js') }}">
+{% endblock %}
+{% block content %}
+<span class="flex-shrink-1 mb-3 fs-4 fw-light">dump a file</span>
+<button class="btn btn-primary btn-xl d-block mx-auto d-flex flex-row" id="uploadButton">
+    <span class="align-self-center me-2">Upload</span> <i class="bi bi-file-earmark-arrow-up-fill" style="font-size: 3rem;"></i>
+</button>
+<div class="border border-secondary border-2 rounded p-2 mt-2">
+    <span>moss.png</span>
+    <i class="bi bi-filetype-png my-1 mx-1"></i>
+    <a href="#" class="text-decoration-none p-0 m-0">&times;</a>
+</div>
+{% endblock %}
+{% block hidden %}
+<input type="file" name="upload" style="display: none;">
+{% endblock %}

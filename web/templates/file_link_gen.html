@@ -1,40 +1,32 @@
-<!DOCTYPE html>
-<html class="w-100 h-100" lang="en">
-<head>
-	<title>{{ filename }}</title>
-    <base href="https://{{ origin }}/">
-	{% include 'meta.html' %}
-    <script defer>
-        window.addEventListener('DOMContentLoaded', function() {
-            const saveData = (function () {
-                var a = document.body.appendChild(document.createElement("a"));
-                a.style = "display: none"
-                return (blob) => {
-                    a.href = window.URL.createObjectURL(blob);
-                    a.download = "{{ filename }}";
-                    a.click();
-                    window.URL.revokeObjectURL(a.href);
-                };
-            }());
-            document.getElementById("download-button").addEventListener("click", e => {
-                fetch("{{ url }}").then(resp => {
-                    return resp.blob().then(saveData);
-                });
-            });
-        });
-    </script>
-</head>
-<body class="w-100 h-100 d-flex flex-column">
-    {% include 'nav.html' %}
-	<main class="container d-flex flex-grow-1 flex-column align-items-center justify-content-center">
-        <div class="container-sm w-25 mt-2 border-info border-2 rounded p-2">
-            <p class="d-inline-block align-middle">{{ filename }}</p>
-            <button class="btn btn-primary float-end" id="download-button">
-                <i class="bi bi-file-earmark-arrow-down-fill" style="font-size: 2rem;"></i>
-            </button>
-        <br style= "clear: both;" />
-        </div>
-    </main>
-    
-</body>
-</html>
+{% extends 'layout.html' %}
+{% block title %}{{ super() }}{{ filename }}{% endblock %}
+{% block head %}
+  {{ super() }}
+  <base href="https://{{ origin }}/">
+  <script defer>
+      window.addEventListener('DOMContentLoaded', function() {
+          const saveData = (function () {
+              var a = document.body.appendChild(document.createElement("a"));
+              a.style = "display: none"
+              return (blob) => {
+                  a.href = window.URL.createObjectURL(blob);
+                  a.download = "{{ filename }}";
+                  a.click();
+                  window.URL.revokeObjectURL(a.href);
+              };
+          }());
+          document.getElementById("download-button").addEventListener("click", e => {
+              fetch("{{ url }}").then(resp => resp.blob()).then(saveData);
+          });
+      });
+  </script>
+{% endblock %}
+{% block content %}
+<div class="container-sm w-25 mt-2 border-info border-2 rounded p-2">
+    <p class="d-inline-block align-middle">{{ filename }}</p>
+    <button class="btn btn-primary float-end" id="download-button">
+        <i class="bi bi-file-earmark-arrow-down-fill" style="font-size: 2rem;"></i>
+    </button>
+    <br style="clear: both;" />
+</div>
+{% endblock %}
