@@ -5,7 +5,7 @@
 */
 
 "use strict";
-const darkmode = new (class DarkMode {
+var darkmode = new (class DarkMode {
     DATA_KEY = "bs.prefers-color-scheme";
     DATA_SELECTOR = "bs-color-scheme";
     VALUE_LIGHT = "light";
